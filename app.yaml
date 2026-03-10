@@ -1,5 +1,10 @@
 name: ciigroup-webpage
 region: sgp
+domains:
+  - domain: ciigroup.me
+    type: PRIMARY
+  - domain: www.ciigroup.me
+    type: ALIAS
 static_sites:
   - name: website
     source_dir: .
