@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CII Group | Digital Access</title>
+    <meta
+      name="description"
+      content="CII Group digital access page with a dedicated authentication route."
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero-card">
+        <p class="eyebrow">CII Group</p>
+        <h1>Digital access page ready for deployment.</h1>
+        <p class="lede">
+          This site includes a dedicated authentication page for links like
+          <code>/en/authenticate?code=...</code> and is designed for a simple
+          DigitalOcean App Platform deployment.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="/en/authenticate?code=A536-2A6Q-9G2A"
+            >Open Authentication Page</a
+          >
+          <a class="button button-secondary" href="https://www.ciigroup.me/en/authenticate?code=A536-2A6Q-9G2A"
+            >Open Live Domain Link</a
+          >
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="info-card">
+          <h2>What this site does</h2>
+          <p>
+            The authentication route reads the incoming query string, surfaces
+            the code on-screen, and gives visitors a stable branded page instead
+            of a blank or broken link.
+          </p>
+        </article>
+        <article class="info-card">
+          <h2>Deployment target</h2>
+          <p>
+            The site is prepared for DigitalOcean App Platform as a static app,
+            which keeps the setup lightweight and easy to maintain.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

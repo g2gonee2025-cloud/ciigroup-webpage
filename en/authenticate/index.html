@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CII Group | Authenticate</title>
+    <meta
+      name="description"
+      content="CII Group authentication page."
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body data-page="authenticate">
+    <main class="shell">
+      <section class="auth-card">
+        <div class="auth-header">
+          <p class="eyebrow">CII Group</p>
+          <span class="status-badge">Authentication Link</span>
+        </div>
+
+        <h1>Authentication code received</h1>
+        <p class="lede">
+          This page reads the code from your secure link and displays it below.
+        </p>
+
+        <div class="code-panel">
+          <p class="panel-label">Current code</p>
+          <div class="code-row">
+            <code id="auth-code" class="code-value">Waiting for code...</code>
+            <button id="copy-code" class="button button-secondary" type="button">
+              Copy
+            </button>
+          </div>
+          <p id="code-help" class="helper-text">
+            Open this page from a link that includes <code>?code=...</code>.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <h2>Route</h2>
+            <p><code>/en/authenticate</code></p>
+          </article>
+          <article class="info-card">
+            <h2>Domain</h2>
+            <p><code>ciigroup.me</code></p>
+          </article>
+        </div>
+
+        <a class="button button-primary" href="/">Back to Home</a>
+      </section>
+    </main>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
