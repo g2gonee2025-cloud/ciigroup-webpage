@@ -1,0 +1,63 @@
+﻿(function () {
+
+    function getCookie(name) {
+        return document.cookie
+            .split('; ')
+            .find(row => row.startsWith(name + '='))
+            ?.split('=')[1] || null;
+    }
+
+    const consentGranted = getCookie("consentCookie") === "true";
+
+
+    const selectors = [
+        'iframe[src*="youtube.com"]',
+        'iframe[src*="youtu.be"]',
+        'iframe[src*="player.vimeo.com"]'
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(selectors.join(',')).forEach(iframe => {
+
+            if (consentGranted) return;
+
+            const videoSrc = iframe.getAttribute("src");
+
+            // Build placeholder wrapper
+            const wrapper = document.createElement("div");
+            wrapper.className = "video-placeholder";
+
+            let thumbnailUrl = "/images/video-placeholder.jpg"; // fallback image
+            const isYouTube = videoSrc.includes("youtube") || videoSrc.includes("youtu.be");
+
+            if (isYouTube) {
+                const videoId = getYouTubeID(videoSrc);
+                if (videoId) {
+                    thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                }
+            }
+
+            // Placeholder markup
+            wrapper.innerHTML = `
+        <div class="video-thumb" style="background-image: url('${thumbnailUrl}')">
+          <div class="video-play-button">▶</div>
+        </div>
+      `;
+
+            // Clicking opens external video (no cookies on your domain)
+            wrapper.addEventListener("click", () => {
+                window.open(videoSrc, "_blank");
+            });
+
+            // Replace original iframe
+            iframe.replaceWith(wrapper);
+        });
+    });
+
+    // Extract video ID from YT URL
+    function getYouTubeID(url) {
+        const match = url.match(/(?:youtube\.com.*[?&]v=|youtu\.be\/)([^&?/]+)/);
+        return match ? match[1] : "";
+    }
+
+})();

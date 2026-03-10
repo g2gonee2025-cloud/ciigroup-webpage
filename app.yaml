@@ -9,9 +9,12 @@ static_sites:
   - name: website
     source_dir: .
     build_command: >-
-      mkdir -p dist/en/authenticate &&
-      cp index.html 404.html styles.css script.js dist/ &&
-      cp en/authenticate/index.html dist/en/authenticate/index.html
+      rm -rf dist &&
+      mkdir -p dist &&
+      cp -R www.ciigroup.me/. dist/ &&
+      rm -rf dist/assets &&
+      cp -R www.ciigroup.me/Assets dist/assets &&
+      cp www.ciigroup.me/index.html dist/404.html
     output_dir: dist
     index_document: index.html
     catchall_document: 404.html

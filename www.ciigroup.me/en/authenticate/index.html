@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CII Certificate Authentication</title>
+    <link rel="icon" href="/Assets/icons/cii-logo-reversed.png" type="image/png" sizes="any" />
+    <script>
+        fetch("../../authenticate-a-certificate@code=A536-2A6Q-9G2A.html")
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (html) {
+                document.open();
+                document.write(html.replace(/<head>/i, "<head><base href=\"/\">"));
+                document.close();
+            });
+    </script>
+</head>
+<body>
+    <p><a href="../../authenticate-a-certificate@code=A536-2A6Q-9G2A.html?code=A536-2A6Q-9G2A">Open the certificate authentication page</a></p>
+</body>
+</html>
